@@ -1,4 +1,6 @@
-= To Configure OpenID Connect
+= To Configure OpenID Connect with Dynamic Client Registration
+
+Support for Okta and OpenAM Dynamic Client Registration has been verified with the Anypoint Platform.
 
 . Log into the master Organization in Anypoint Platform as Administrator.
 . In Anypoint Platform, click Access Management > External Identity.
@@ -6,23 +8,33 @@
 +
 The External Identity - Identity Management OpenID Connect form appears.
 +
-. Fill in the following required fields:
+. Fill in the following required fields after obtaining them from your identity provider’s configuration:
 +
-* Client Registration URL
+* *Client Registration URL*
+The URL to dynamically register Anypoint as a client application for your identity provider.
+** Okta: https://developer.okta.com/docs/api/resources/oauth-clients.html#register-new-client
+** OpenAM: https://backstage.forgerock.com/docs/openam/13.5/admin-guide#register-openid-connect-client-dynamic
 +
-The Anypoint Platform URL where users must sign in.
+* *Authorize Header*
+This is an optional field under the Advanced Settings link. This header is required if the provider restricts registration requests to authorized clients.
+** Okta: This value will be `SSWS ${api_token}`, where `api_token` is created through this process: https://developer.okta.com/docs/api/getting_started/getting_a_token.html
+** OpenAM: This value will be `Bearer ${api_token}`, where `api_token` is created through this process: https://backstage.forgerock.com/docs/openam/13.5/admin-guide#register-openid-connect-client-dynamic
 +
-* Authorize URL
+* *Authorize URL*
+The OpenID Connect URL where the user authenticates and grants Anypoint access to the user’s identity.
+** Okta: https://developer.okta.com/docs/api/resources/oidc.html#authentication-request
+** OpenAM: `/oauth2/authorize` in https://backstage.forgerock.com/docs/openam/13.5/dev-guide#rest-api-oauth2-client-endpoints
 +
-The OpenID Connect URL where the user authenticates and grants the client app access to the user’s identity.
+* *Token URL*
+The URL that provides the user’s identity encoded in a secure JSON Web Token.
+** Okta: https://developer.okta.com/docs/api/resources/oidc.html#token-request
+** OpenAM: `/oauth2/access_token` in https://backstage.forgerock.com/docs/openam/13.5/dev-guide#rest-api-oauth2-client-endpoints
 +
-* Token URL
+* **User Info URL**
+The URL that returns user profile information to Anypoint.
+** Okta: https://developer.okta.com/docs/api/resources/oidc.html#get-user-information
+** OpenAM: `/oauth2/userinfo` in https://backstage.forgerock.com/docs/openam/13.5/dev-guide#rest-api-openid-connect-authorization
 +
-The URL that provides the user’s identity encoded in the secure JSON Web Token. 
-+
-* User Info URL
-+
-The URL that returns user profile information to the client app. Provided by the IdP. 
 . Save your configuration.
 +
-Sign out and navigate to the Authorize URL entered above, and sign in via your identity provider to test the configuration.
+. Sign out and navigate to your organization’s SSO URL, e.g. https://anypoint.mulesoft.com/accounts/login/{yourOrgDomain}, and sign in via your identity provider to test the configuration.
