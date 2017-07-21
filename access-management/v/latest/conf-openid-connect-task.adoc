@@ -60,3 +60,73 @@ Docs: https://backstage.forgerock.com/docs/openam/13.5/dev-guide#rest-api-openid
 . Save your configuration.
 +
 . Sign out and navigate to your organization’s SSO URL, e.g. https://anypoint.mulesoft.com/accounts/login/{yourOrgDomain}, and sign in via your identity provider to test the configuration.
+
+= To Configure OpenID Connect with a Manually Created Client
+
+Support for clients manually created in Okta, OpenAM, and PingFederate has been verified with the Anypoint Platform.
+
+. Log into the master Organization in Anypoint Platform as Administrator.
+. In Anypoint Platform, click Access Management > External Identity.
+. From Identity Management, select OpenId Connect.
++
+The External Identity - Identity Management OpenID Connect form appears.
++
+. Click on the `Use manual registration` link under the Client Registration URL field.
+. Before proceeding further, create a client application for the Anypoint Platform inside your Identity Provider.
+** Your Identity Provider will require a redirect URI for redirecting authenticated users. Use the automatically generated redirect URI above the Client ID field for this.
+** Inside your Identity Provider, ensure that your client's supported scopes include `openid`, `profile`, and `email`.
+** Inside your Identity Provider, ensure that your client uses the `authorization_code` grant type.
+** Save your Client ID and Client Secret values in a secure place. You will need them for the next fields inside the Identity Management OpenID Connect form.
+. Fill in the following required fields after obtaining them from your identity provider’s configuration:
++
+* *Client ID*
++
+The unique identifier that you provided for your manually created client application.
++
+* *Client Secret*
++
+The password, or secret, for authenticating your Anypoint Platform client application with your Identity Provider.
++
+* *Authorize URL*
++
+The OpenID Connect URL where the user authenticates and grants Anypoint access to the user’s identity.
++
+** Okta: https://developer.okta.com/docs/api/resources/oidc.html#authentication-request
++
+** OpenAM: `https://example.com/openam/oauth2/authorize`
++
+Docs: https://backstage.forgerock.com/docs/openam/13.5/dev-guide#rest-api-oauth2-client-endpoints
++
+** PingFederate: `https://example.com:9031/as/authorization.oauth2`
++
+Docs: https://documentation.pingidentity.com/pingfederate/pf84/index.shtml#concept_authorizationEndpoint.html#concept_authorizationEndpoint
++
+* *Token URL*
++
+The URL that provides the user’s identity encoded in a secure JSON Web Token.
++
+** Okta: https://developer.okta.com/docs/api/resources/oidc.html#token-request
++
+** OpenAM: `https://example.com/openam/oauth2/access_token`
++
+Docs: https://backstage.forgerock.com/docs/openam/13.5/dev-guide#rest-api-oauth2-client-endpoints
++
+** PingFederate: `https://example.com:9031/as/token.oauth2`
++
+Docs: https://documentation.pingidentity.com/pingfederate/pf84/index.shtml#adminGuide/concept/tokenEndpoint.html
++
+* **User Info URL**
++
+The URL that returns user profile information to Anypoint.
++
+** Okta: https://developer.okta.com/docs/api/resources/oidc.html#get-user-information
++
+** OpenAM: `https://example.com/openam/oauth2/userinfo`
++
+Docs: https://backstage.forgerock.com/docs/openam/13.5/dev-guide#rest-api-openid-connect-authorization
++
+** PingFederate: `https://example.com:9031/idp/userinfo.openid`
++
+. Save your configuration.
++
+. Sign out and navigate to your organization’s SSO URL, e.g. https://anypoint.mulesoft.com/accounts/login/{yourOrgDomain}, and sign in via your identity provider to test the configuration.
