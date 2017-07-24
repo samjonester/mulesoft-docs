@@ -8,7 +8,7 @@ Support for Okta and OpenAM Dynamic Client Registration has been verified with t
 
 . Log into the master Organization in Anypoint Platform as Administrator.
 . In Anypoint Platform, click Access Management > External Identity.
-. From Identity Management, select OpenId Connect.
+. From Identity Management, select OpenID Connect.
 +
 The External Identity - Identity Management OpenID Connect form appears.
 +
@@ -71,7 +71,7 @@ Support for clients manually created in Okta, OpenAM, and PingFederate has been 
 
 . Log into the master Organization in Anypoint Platform as Administrator.
 . In Anypoint Platform, click Access Management > External Identity.
-. From Identity Management, select OpenId Connect.
+. From Identity Management, select OpenID Connect.
 +
 The External Identity - Identity Management OpenID Connect form appears.
 +
