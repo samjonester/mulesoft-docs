@@ -1,4 +1,8 @@
-= To Configure OpenID Connect with Dynamic Client Registration
+= To Configure OpenID Connect
+
+If you've already configured your Anypoint Platform as a client application in your identity provider, then follow the steps in link:#manual-client-registration[Manual Registration]. Otherwise, if your identity provider supports it, follow the steps in link:#dynamic-client-registration[Dynamic Client Registration].
+
+== Dynamic Client Registration
 
 Support for Okta and OpenAM Dynamic Client Registration has been verified with the Anypoint Platform.
 
@@ -61,7 +65,7 @@ Docs: https://backstage.forgerock.com/docs/openam/13.5/dev-guide#rest-api-openid
 +
 . Sign out and navigate to your organization’s SSO URL, e.g. https://anypoint.mulesoft.com/accounts/login/{yourOrgDomain}, and sign in via your identity provider to test the configuration.
 
-= To Configure OpenID Connect with a Manually Created Client
+== Manual Client Registration
 
 Support for clients manually created in Okta, OpenAM, and PingFederate has been verified with the Anypoint Platform.
 
@@ -72,11 +76,11 @@ Support for clients manually created in Okta, OpenAM, and PingFederate has been 
 The External Identity - Identity Management OpenID Connect form appears.
 +
 . Click on the `Use manual registration` link under the Client Registration URL field.
-. Before proceeding further, create a client application for the Anypoint Platform inside your Identity Provider.
+. **Before proceeding further, create a client application for the Anypoint Platform inside your Identity Provider.**
 ** Your Identity Provider will require a redirect URI for redirecting authenticated users. Use the automatically generated redirect URI above the Client ID field for this.
 ** Inside your Identity Provider, ensure that your client's supported scopes include `openid`, `profile`, and `email`.
 ** Inside your Identity Provider, ensure that your client uses the `authorization_code` grant type.
-** Save your Client ID and Client Secret values in a secure place. You will need them for the next fields inside the Identity Management OpenID Connect form.
+** Store your Client ID and Client Secret values in a secure place. You will need them for the next fields inside the Identity Management OpenID Connect form.
 . Fill in the following required fields after obtaining them from your identity provider’s configuration:
 +
 * *Client ID*
