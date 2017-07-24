@@ -32,8 +32,33 @@ After you’ve made your selection, you are ready to set up your Anypoint Platfo
 
 Follow the procedures to configure OpenID Connect or SAML 2.0 in this documentation. 
 
+Once your organization's external identity provider has been configured, you can test the integration by visiting your organization's login URL. Your organization's login URL will be `https:/anypoint.mulesoft.com/accounts/login/{organization-domain-name}`. You can find your organization's domain name by logging into Anypoint with your administrator account, visiting Access Management -> Organization, and then clicking on your organization's name. Look for the value in the "Domain name" field.
+
+When you visit your organization's login URL, you will be redirected to your identity provider where you will authenticate. After authenticating, you will be redirected back to Anypoint as an authenticated user.
+
+== FAQs
+
+*Q: What happens when a user logs into the configured IdP for the first time?*
+
+A: An Anypoint user is created using the user's IdP information, including username, name, and email.
+
+*Q: What happens when a user updates their profile information in the configured IdP?*
+
+A: After logging into Anypoint via the IdP, the user's profile information will be updated within Anypoint.
+
+*Q: How does Anypoint select a username for an IdP-authenticated user under OpenID Connect?*
+
+A: Typically, the OpenID Connect userinfo endpoint should provide a `preferred_username` claim that contains the authenticated user's username. However, some IdPs such as OpenAM and PingFederate do not support the `preferred_username` claim. Therefore, when creating an Anypoint user, Anypoint will use the `email` and `sub` claims as fallback values for the username if the `preferred_username` claim is not present.
+
 == See Also
 
 * link:/access-management/managing-users[To Configure OpenID Connect]
 * link:/access-management/managing-users[To Configure SAML]
 * link:/access-management/conf-ldap-private-cloud-task[To Configure LDAP in Anypoint Platform Private Cloud]
+
+// Notes
+// * User is created in Anypoint with profile information from IdP.
+// * User updates in IdP propagate to Anypoint during authentication.
+// * Username is provided by the IdP as the preferred username claim, * for OpenAM & PF.
+// * Removing your external identity provider from Anypoint will not remove Anypoint as a client in your IdP.
+// * Deleting a user in the IdP will not propagate to your Anypoint organization, though they will be unable to log in.
