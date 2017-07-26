@@ -18,48 +18,41 @@ The External Identity - Identity Management OpenID Connect form appears.
 +
 The URL to dynamically register Anypoint as a client application for your identity provider.
 +
-** Okta: https://developer.okta.com/docs/api/resources/oauth-clients.html#register-new-client
+** Okta: `https://example.okta.com/oauth2/v1/clients` (link:https://developer.okta.com/docs/api/resources/oauth-clients.html#register-new-client[Docs])
 +
-** OpenAM: `https://example.com/openam/oauth2/connect/register`
+** OpenAM: `https://example.com/openam/oauth2/connect/register` (link:https://backstage.forgerock.com/docs/openam/13.5/admin-guide#register-openid-connect-client-dynamic[Docs])
 +
-Docs: https://backstage.forgerock.com/docs/openam/13.5/admin-guide#register-openid-connect-client-dynamic
 * *Authorize Header*
 +
-This is an optional field under the Advanced Settings link. This header is required if the provider restricts registration requests to authorized clients.
+The authorization header for dynamic client registration request. This is an optional field under the Advanced Settings link. This header is required if the provider restricts registration requests to authorized clients.
 +
-** Okta: This value will be `SSWS ${api_token}`, where `api_token` is created through this process: https://developer.okta.com/docs/api/getting_started/getting_a_token.html
+** Okta: This value will be `SSWS ${api_token}`, where `api_token` is an API token link:https://developer.okta.com/docs/api/getting_started/getting_a_token.html[created through Okta].
 +
-** OpenAM: This value will be `Bearer ${api_token}`, where `api_token` is created through this process: https://backstage.forgerock.com/docs/openam/13.5/admin-guide#register-openid-connect-client-dynamic
+** OpenAM: This value will be `Bearer ${api_token}`, where `api_token` is an API token link:https://backstage.forgerock.com/docs/openam/13.5/admin-guide#register-openid-connect-client-dynamic[created through OpenAM].
 +
 * *Authorize URL*
 +
-The OpenID Connect URL where the user authenticates and grants Anypoint access to the user’s identity.
+The URL where the user authenticates and grants OpenID Connect client applications access to the user's identity.
 +
-** Okta: https://developer.okta.com/docs/api/resources/oidc.html#authentication-request
+** Okta: `https://example.okta.com/oauth2/v1/authorize` (link:https://developer.okta.com/docs/api/resources/oidc.html#authentication-request[Docs])
 +
-** OpenAM: `https://example.com/openam/oauth2/authorize`
-+
-Docs: https://backstage.forgerock.com/docs/openam/13.5/dev-guide#rest-api-oauth2-client-endpoints
+** OpenAM: `https://example.com/openam/oauth2/authorize` (link:https://backstage.forgerock.com/docs/openam/13.5/dev-guide#rest-api-oauth2-client-endpoints[Docs])
 +
 * *Token URL*
 +
 The URL that provides the user’s identity encoded in a secure JSON Web Token.
 +
-** Okta: https://developer.okta.com/docs/api/resources/oidc.html#token-request
+** Okta: `https://example.okta.com/oauth2/v1/token` (link:https://developer.okta.com/docs/api/resources/oidc.html#token-request[Docs])
 +
-** OpenAM: `https://example.com/openam/oauth2/access_token`
-+
-Docs: https://backstage.forgerock.com/docs/openam/13.5/dev-guide#rest-api-oauth2-client-endpoints
+** OpenAM: `https://example.com/openam/oauth2/access_token` (link:https://backstage.forgerock.com/docs/openam/13.5/dev-guide#rest-api-oauth2-client-endpoints[Docs])
 +
 * **User Info URL**
 +
 The URL that returns user profile information to Anypoint.
 +
-** Okta: https://developer.okta.com/docs/api/resources/oidc.html#get-user-information
+** Okta: `https://example.okta.com/oauth2/v1/userinfo` (link:https://developer.okta.com/docs/api/resources/oidc.html#get-user-information[Docs])
 +
-** OpenAM: `https://example.com/openam/oauth2/userinfo`
-+
-Docs: https://backstage.forgerock.com/docs/openam/13.5/dev-guide#rest-api-openid-connect-authorization
+** OpenAM: `https://example.com/openam/oauth2/userinfo` (link:https://backstage.forgerock.com/docs/openam/13.5/dev-guide#rest-api-openid-connect-authorization[Docs])
 +
 . Save your configuration.
 +
@@ -93,43 +86,33 @@ The password, or secret, for authenticating your Anypoint Platform client applic
 +
 * *Authorize URL*
 +
-The OpenID Connect URL where the user authenticates and grants Anypoint access to the user’s identity.
+The URL where the user authenticates and grants OpenID Connect client applications access to the user's identity.
 +
-** Okta: https://developer.okta.com/docs/api/resources/oidc.html#authentication-request
+** Okta: `https://example.okta.com/oauth2/v1/authorize` (link:https://developer.okta.com/docs/api/resources/oidc.html#authentication-request[Docs])
 +
-** OpenAM: `https://example.com/openam/oauth2/authorize`
+** OpenAM: `https://example.com/openam/oauth2/authorize` (link:https://backstage.forgerock.com/docs/openam/13.5/dev-guide#rest-api-oauth2-client-endpoints[Docs])
 +
-Docs: https://backstage.forgerock.com/docs/openam/13.5/dev-guide#rest-api-oauth2-client-endpoints
-+
-** PingFederate: `https://example.com:9031/as/authorization.oauth2`
-+
-Docs: https://documentation.pingidentity.com/pingfederate/pf84/index.shtml#concept_authorizationEndpoint.html#concept_authorizationEndpoint
+** PingFederate: `https://example.com:9031/as/authorization.oauth2` (link:https://documentation.pingidentity.com/pingfederate/pf84/index.shtml#concept_authorizationEndpoint.html#concept_authorizationEndpoint[Docs])
 +
 * *Token URL*
 +
 The URL that provides the user’s identity encoded in a secure JSON Web Token.
 +
-** Okta: https://developer.okta.com/docs/api/resources/oidc.html#token-request
+** Okta: `https://example.okta.com/oauth2/v1/token` (link:https://developer.okta.com/docs/api/resources/oidc.html#token-request[Docs])
 +
-** OpenAM: `https://example.com/openam/oauth2/access_token`
+** OpenAM: `https://example.com/openam/oauth2/access_token` (link:https://backstage.forgerock.com/docs/openam/13.5/dev-guide#rest-api-oauth2-client-endpoints[Docs])
 +
-Docs: https://backstage.forgerock.com/docs/openam/13.5/dev-guide#rest-api-oauth2-client-endpoints
-+
-** PingFederate: `https://example.com:9031/as/token.oauth2`
-+
-Docs: https://documentation.pingidentity.com/pingfederate/pf84/index.shtml#adminGuide/concept/tokenEndpoint.html
+** PingFederate: `https://example.com:9031/as/token.oauth2` (link:https://documentation.pingidentity.com/pingfederate/pf84/index.shtml#adminGuide/concept/tokenEndpoint.html[Docs])
 +
 * **User Info URL**
 +
 The URL that returns user profile information to Anypoint.
 +
-** Okta: https://developer.okta.com/docs/api/resources/oidc.html#get-user-information
+** Okta: `https://example.okta.com/oauth2/v1/userinfo` (link:https://developer.okta.com/docs/api/resources/oidc.html#get-user-information[Docs])
 +
-** OpenAM: `https://example.com/openam/oauth2/userinfo`
+** OpenAM: `https://example.com/openam/oauth2/userinfo` (link:https://backstage.forgerock.com/docs/openam/13.5/dev-guide#rest-api-openid-connect-authorization[Docs])
 +
-Docs: https://backstage.forgerock.com/docs/openam/13.5/dev-guide#rest-api-openid-connect-authorization
-+
-** PingFederate: `https://example.com:9031/idp/userinfo.openid`
+** PingFederate: `https://example.com:9031/idp/userinfo.openid` (link:https://developer.pingidentity.com/en/resources/openid-connect-developers-guide.html#userinfo_endpoint[Docs])
 +
 . Save your configuration.
 +
