@@ -44,7 +44,7 @@ A: An Anypoint user is created in your organization using the user's IdP informa
 
 *Q: What happens when a user updates their profile information in the configured IdP?*
 
-A: After logging into Anypoint via the IdP, the user's profile information will be updated within Anypoint.
+A: The next time that the user logs into Anypoint via the IdP, the user's profile information will be updated within Anypoint.
 
 *Q: How does Anypoint select a username for an IdP-authenticated user under OpenID Connect?*
 
