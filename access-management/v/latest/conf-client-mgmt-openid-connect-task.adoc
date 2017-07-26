@@ -1,0 +1,53 @@
+= To Configure OpenID Connect
+
+Support for Okta and OpenAM Dynamic Client Registration has been verified with the Anypoint Platform.
+
+. Log into the master Organization in Anypoint Platform as Administrator.
+. In Anypoint Platform, click Access Management > External Identity.
+. From Client Management, select OpenID Connect Dynamic Client Registration.
++
+The External Identity - Client Management OpenID Connect Dynamic Client Registration form appears.
++
+. Fill in the following required fields after obtaining them from your identity provider’s configuration:
++
+* *Client Registration URL*
++
+The URL to dynamically register client applications with your identity provider.
++
+** Okta: `https://example.okta.com/oauth2/v1/clients` (link:https://developer.okta.com/docs/api/resources/oauth-clients.html#register-new-client[Docs])
++
+** OpenAM: `https://example.com/openam/oauth2/connect/register` (link:https://backstage.forgerock.com/docs/openam/13.5/admin-guide#register-openid-connect-client-dynamic[Docs])
++
+* *Authorize Header*
++
+The authorization header for dynamic client registration request. This is an optional field under the Advanced Settings link. This header is required if the provider restricts registration requests to authorized clients.
++
+** Okta: This value will be `SSWS ${api_token}`, where `api_token` is an API token link:https://developer.okta.com/docs/api/getting_started/getting_a_token.html[created through Okta].
++
+** OpenAM: This value will be `Bearer ${api_token}`, where `api_token` is an API token link:https://backstage.forgerock.com/docs/openam/13.5/admin-guide#register-openid-connect-client-dynamic[created through OpenAM].
++
+* *Authorize URL*
++
+The URL where the user authenticates and grants OpenID Connect client applications access to the user's identity.
++
+** Okta: `https://example.okta.com/oauth2/v1/authorize` (link:https://developer.okta.com/docs/api/resources/oidc.html#authentication-request[Docs])
++
+** OpenAM: `https://example.com/openam/oauth2/authorize` (link:https://backstage.forgerock.com/docs/openam/13.5/dev-guide#rest-api-oauth2-client-endpoints[Docs])
++
+* *Token URL*
++
+The URL that provides an access token for an OpenID Connect client application to hit an API hosted in API Gateway.
++
+** Okta: `https://example.okta.com/oauth2/v1/token` (link:https://developer.okta.com/docs/api/resources/oidc.html#token-request[Docs])
++
+** OpenAM: `https://example.com/openam/oauth2/access_token` (link:https://backstage.forgerock.com/docs/openam/13.5/dev-guide#rest-api-oauth2-client-endpoints[Docs])
++
+* **Token Introspection URL**
++
+The URL that returns metadata about an OpenID Connect access token, including expiration and token active state.
++
+** Okta: `https://example.okta.com/oauth2/v1/introspect` (link:https://developer.okta.com/docs/api/resources/oidc.html#introspection-request[Docs])
++
+** OpenAM: `https://example.com/openam/oauth2/introspect` (link:https://backstage.forgerock.com/docs/openam/13.5/dev-guide#rest-api-oauth2-client-endpoints[Docs])
++
+. Save your configuration.
